@@ -1,0 +1,14 @@
+{
+  "$schema": "vscode://schemas/mcp",
+  "servers": {
+    "figma": {
+      "type": "http",
+      "url": "https://mcp.figma.com/mcp"
+    },
+    "claudeCode": {
+      "type": "stdio",
+      "command": "cmd",
+      "args": ["/c", "claude", "mcp", "serve"]
+    }
+  }
+}
