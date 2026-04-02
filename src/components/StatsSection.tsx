@@ -100,6 +100,9 @@ export default function StatsSection() {
           Todos os projetos são desenvolvidos com foco em alta performance,
           acessibilidade e boas práticas técnicas.
         </p>
+        <p className="mt-2 text-xs font-medium uppercase tracking-wider text-[rgba(248,248,248,0.35)]">
+          Pontuação medida pelo Google Lighthouse
+        </p>
       </div>
 
       <div

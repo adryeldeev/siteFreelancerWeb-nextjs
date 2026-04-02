@@ -14,6 +14,9 @@ import {
   MessageCircle,
   Star,
   ChevronDown,
+  Phone,
+  FileText,
+  Globe,
 } from "lucide-react";
 
 
@@ -55,6 +58,12 @@ const testimonials = [
 ];
 
 const faqs = [
+  {
+    question: "Quanto custa desenvolver um site?",
+    paragraphs: [
+      "Cada projeto é orçado individualmente com base na complexidade e funcionalidades necessárias. Entre em contato para receber uma proposta personalizada e gratuita em até 24 horas.",
+    ],
+  },
   {
     question: "Além do desenvolvimento, terei algum custo extra?",
     paragraphs: [
@@ -117,7 +126,7 @@ export default function Home() {
               </p>
               <div className="flex flex-wrap gap-4">
                 <a href={whatsappUrl} className="flex items-center gap-2 rounded-lg bg-[#5dd62c] px-6 py-3 font-bold text-[#101010] transition-colors hover:bg-[#4ab325]">
-                  Solicitar Orçamento
+                  Quero Meu Site
                   <ArrowRight size={16} strokeWidth={2.5} />
                 </a>
                 <a href="#portfolio" className="rounded-lg border border-[rgba(255,255,255,0.15)] px-6 py-3 font-semibold text-[#f8f8f8] transition-colors hover:border-[#5dd62c] hover:text-[#5dd62c]">
@@ -125,7 +134,7 @@ export default function Home() {
                 </a>
               </div>
               <div className="flex flex-wrap gap-6 pt-2">
-                {["+ 50 projetos entregues", "100% de satisfação", "Entrega ágil"].map((item) => (
+                {["+50 sites entregues desde 2023", "Nota máxima no Google Lighthouse", "Entrega em até 14 dias"].map((item) => (
                   <div key={item} className="flex items-center gap-2 text-sm text-[rgba(248,248,248,0.6)]">
                     <Check size={15} className="shrink-0 text-[#5dd62c]" />
                     {item}
@@ -226,6 +235,49 @@ export default function Home() {
                 Estrutura técnica otimizada para aparecer nos primeiros resultados do Google. Score 100 no Google Lighthouse em todos os projetos entregues.
               </p>
             </div>
+          </div>
+        </section>
+
+        {/* COMO FUNCIONA */}
+        <section className="mx-auto max-w-6xl px-6 py-24">
+          <div className="mb-12 text-center">
+            <span className="badge-accent">Como Funciona</span>
+            <h2 className="mt-4 font-display text-3xl font-bold text-[#f8f8f8] md:text-4xl">
+              Do primeiro contato ao site no ar
+            </h2>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {[
+              {
+                step: "01",
+                icon: Phone,
+                title: "Você entra em contato",
+                desc: "Conte sobre seu negócio e objetivos. Respondemos em até 24 horas com uma proposta personalizada.",
+              },
+              {
+                step: "02",
+                icon: FileText,
+                title: "Criamos seu projeto",
+                desc: "Desenvolvemos o design e a estrutura do site com foco em conversão, performance e SEO.",
+              },
+              {
+                step: "03",
+                icon: Globe,
+                title: "Seu site no ar",
+                desc: "Publicamos, testamos e entregamos seu site funcionando — com suporte incluso após a entrega.",
+              },
+            ].map((item) => (
+              <div key={item.step} className="glass-card relative rounded-2xl p-8 text-center">
+                <span className="absolute right-6 top-6 font-display text-4xl font-bold text-[rgba(93,214,44,0.1)]">
+                  {item.step}
+                </span>
+                <div className="mx-auto mb-5 flex h-12 w-12 items-center justify-center rounded-xl border border-[rgba(93,214,44,0.2)] bg-[rgba(93,214,44,0.1)]">
+                  <item.icon size={22} className="text-[#5dd62c]" />
+                </div>
+                <h3 className="mb-3 font-display text-xl font-bold text-[#f8f8f8]">{item.title}</h3>
+                <p className="text-sm leading-relaxed text-[rgba(248,248,248,0.6)]">{item.desc}</p>
+              </div>
+            ))}
           </div>
         </section>
 
@@ -332,6 +384,9 @@ export default function Home() {
               <p className="mx-auto mt-4 max-w-xl text-[rgba(248,248,248,0.6)]">
                 Vamos conversar sobre seu projeto. Análise gratuita e proposta personalizada em até 24 horas.
               </p>
+              <p className="mt-2 text-sm font-medium text-[#5dd62c]">
+                ✦ Vagas limitadas para este mês
+              </p>
               <div className="mt-8 flex flex-wrap justify-center gap-4">
                 <a href={whatsappUrl} className="flex items-center gap-2 rounded-xl bg-[#5dd62c] px-8 py-4 text-base font-bold text-[#101010] transition-colors hover:bg-[#4ab325]">
                   <MessageCircle size={18} />
@@ -356,6 +411,7 @@ export default function Home() {
           <div className="flex gap-6 text-sm text-[rgba(248,248,248,0.5)]">
             <a href="#servicos" className="transition-colors hover:text-[#5dd62c]">Serviços</a>
             <a href="#portfolio" className="transition-colors hover:text-[#5dd62c]">Portfólio</a>
+            <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-[#5dd62c]">Instagram</a>
             <a href={whatsappUrl} className="transition-colors hover:text-[#5dd62c]">Contato</a>
           </div>
         </div>
