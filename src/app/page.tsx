@@ -1,27 +1,19 @@
-﻿"use client";
-
-import Image from "next/image";
+﻿import Image from "next/image";
 import Link from "next/link";
-import PortfolioSlider from "@/components/PortfolioSlider";
-import StatsSection from "@/components/StatsSection";
+import FaqAccordion from "@/components/FaqAccordion";
+import RecentProjectsSlider from "@/components/RecentProjectsSlider";
+import SmartNavbar from "@/components/SmartNavbar";
 import {
-  ArrowRight,
-  Check,
-  Rocket,
-  Building2,
-  Settings2,
-  TrendingUp,
-  MessageCircle,
-  Star,
-  ChevronDown,
-  Phone,
-  FileText,
-  Globe,
-} from "lucide-react";
+  FaArrowLeftLong,
+  FaArrowRightLong,
+  FaCheck,
+  FaQuoteLeft,
+  FaXmark,
+} from "react-icons/fa6";
 
 
 
-const whatsappNumber = "5500000000000";
+const whatsappNumber = "5585984414455";
 const whatsappText = encodeURIComponent(
   "Olá! Quero um site profissional para meu negócio.",
 );
@@ -38,130 +30,128 @@ const marqueeItems = [
 
 const testimonials = [
   {
+    quote:
+      "Foi um prazer enorme contar com o trabalho. Souberam ler, identificar e entregar exatamente o que estávamos buscando.",
+    name: "Dr. Rafael Mendes",
+    role: "Ortopedista",
+  },
+  {
+    quote:
+      "Com o novo site, os contatos ficaram muito mais qualificados e aumentamos a taxa de fechamento em poucas semanas.",
     name: "Carlos Andrade",
-    role: "Advogado",
-    text: "Em menos de 2 semanas tive minha landing page no ar. Os contatos através do site dobraram no primeiro mês.",
-    rating: 5,
+    role: "CEO da 4S Seguros",
   },
   {
-    name: "Fernanda Lima",
-    role: "Empreendedora Digital",
-    text: "Design incrível e entrega no prazo. O site ficou exatamente como eu imaginava, profissional e moderno.",
-    rating: 5,
+    quote:
+      "A presença digital agora representa o tamanho da nossa empresa. Ficou profissional, clara e com foco em resultado.",
+    name: "Giovanna",
+    role: "GR Pré Moldados",
   },
   {
+    quote:
+      "O posicionamento ficou muito mais forte. Hoje os pacientes chegam com mais confiança e prontos para agendar.",
+    name: "Dra. Fernanda Lima",
+    role: "Ortopedista",
+  },
+  {
+    quote:
+      "Além do design impecável, o processo foi rápido e objetivo. Melhoramos autoridade e percepção de valor.",
     name: "Roberto Teixeira",
     role: "Consultor Financeiro",
-    text: "Excelente trabalho! A performance do site é impecável e o SEO já está gerando resultados orgânicos.",
-    rating: 5,
-  },
-];
-
-const faqs = [
-  {
-    question: "Quanto custa desenvolver um site?",
-    paragraphs: [
-      "Cada projeto é orçado individualmente com base na complexidade e funcionalidades necessárias. Entre em contato para receber uma proposta personalizada e gratuita em até 24 horas.",
-    ],
   },
   {
-    question: "Além do desenvolvimento, terei algum custo extra?",
-    paragraphs: [
-      "Sim. Para publicar um projeto na internet é necessário ter um domínio, por exemplo, www.meusite.com.br, que tem custo médio de R$40/ano.",
-      "Também precisa ter uma hospedagem web para armazenar os arquivos do seu site. Ela tem um custo médio de R$30/mês.",
-    ],
-  },
-  {
-    question: "Após a entrega do projeto, tenho suporte?",
-    paragraphs: [
-      "Sim! Após a entrega do projeto, oferecemos, no mínimo, 15 dias de suporte gratuito. Neste período, realizamos todos os ajustes necessários do projeto.",
-    ],
-  },
-  {
-    question: "Quais formas de pagamento são aceitas?",
-    paragraphs: [],
-    items: [
-      "À vista, com desconto de 10%",
-      "50/50, ou seja, metade do pagamento no início e a outra na entrega do projeto",
-      "Cartão de crédito em até 6x sem juros",
-    ],
+    quote:
+      "A estrutura do site ficou extremamente clara. Agora nosso comercial recebe leads muito mais preparados.",
+    name: "Mariana Costa",
+    role: "Diretora Comercial",
   },
 ];
 
 export default function Home() {
   return (
     <>
-      {/* NAVBAR */}
-      <header className="sticky top-0 z-50 border-b border-[rgba(255,255,255,0.06)] bg-[rgba(20,20,20,0.85)] backdrop-blur-xl">
-        <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <Link href="/" className="font-display text-xl font-bold">
-            <span className="text-[#5dd62c]">adryel</span>
-            <span className="text-[#f8f8f8]"> web</span>
-          </Link>
+      {/* HERO + NAVBAR WRAPPER */}
+      <div id="inicio" data-nav-theme="dark" className="relative min-h-0 overflow-hidden w-full md:min-h-screen">
+        <SmartNavbar whatsappUrl={whatsappUrl} />
 
-          <div className="flex items-center gap-3">
-            <a href={whatsappUrl} className="rounded-lg bg-[#5dd62c] px-5 py-2.5 text-sm font-semibold text-[#101010] transition-colors hover:bg-[#4ab325]">
-              Falar no WhatsApp
-            </a>
-          </div>
-        </nav>
-      </header>
+        {/* Video Background */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 h-full w-full object-cover"
+        >
+          <source src="/background.mp4" type="video/mp4" />
+        </video>
 
-      <main>
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/65" />
+
         {/* HERO */}
-        <section className="mx-auto max-w-6xl px-6 py-20 md:py-28">
-          <div className="grid gap-10 md:grid-cols-2 md:items-stretch md:gap-12">
-            <div className="space-y-6">
-              <span className="badge-accent">✦ Agência Web</span>
-              <h1 className="max-w-[11ch] font-display text-[2.35rem] font-bold leading-tight text-[#f8f8f8] sm:text-[2.75rem] md:max-w-[14ch] md:text-5xl lg:max-w-[15ch] lg:text-[3.5rem]">
-                Sites que{" "}
-                <span className="text-[#5dd62c] [text-shadow:0_0_40px_rgba(93,214,44,0.4)]">
-                  Vendem
+        <section className="animate-hero-enter relative z-10 mx-auto flex w-full max-w-7xl items-center px-4 pb-14 pt-24 md:px-6 md:pb-28 md:pt-36">
+          <div className="grid w-full gap-10 md:grid-cols-2 md:items-end md:gap-16">
+            {/* Coluna esquerda */}
+            <div className="space-y-6 md:space-y-7">
+              <div className="inline-flex items-center overflow-hidden rounded-full border border-white/20 bg-[rgba(10,10,10,0.55)]">
+                <span className="px-3 py-1.5 text-[11px] font-semibold tracking-wide text-[#0978E4] md:px-4 md:py-2 md:text-sm">
+                  EM 20 DIAS
                 </span>
-                .<br className="hidden md:block" />
-                Design que Converte.
-              </h1>
-              <p className="max-w-md text-lg leading-relaxed text-[rgba(248,248,248,0.65)]">
-                Criamos landing pages, sites institucionais e sistemas web com alta performance e design que converte visitantes em clientes.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <a href={whatsappUrl} className="flex items-center gap-2 rounded-lg bg-[#5dd62c] px-6 py-3 font-bold text-[#101010] transition-colors hover:bg-[#4ab325]">
-                  Quero Meu Site
-                  <ArrowRight size={16} strokeWidth={2.5} />
-                </a>
-                <a href="#portfolio" className="rounded-lg border border-[rgba(255,255,255,0.15)] px-6 py-3 font-semibold text-[#f8f8f8] transition-colors hover:border-[#5dd62c] hover:text-[#5dd62c]">
-                  Ver Portfólio
-                </a>
+                <span className="border-l border-white/15 px-3 py-1.5 text-[11px] font-medium text-white/80 md:px-4 md:py-2 md:text-sm">
+                  Seu novo site no ar
+                </span>
               </div>
-              <div className="flex flex-wrap gap-6 pt-2">
-                {["+50 sites entregues desde 2023", "Nota máxima no Google Lighthouse", "Entrega em até 14 dias"].map((item) => (
-                  <div key={item} className="flex items-center gap-2 text-sm text-[rgba(248,248,248,0.6)]">
-                    <Check size={15} className="shrink-0 text-[#5dd62c]" />
-                    {item}
-                  </div>
-                ))}
+              <h1 className="font-display text-[2rem] font-bold leading-tight text-white sm:text-[2.35rem] md:text-5xl lg:text-[3.2rem]">
+                Transformo seu site no reflexo real do que{" "}
+                <span className="text-[#0978E4]">seu consultório é hoje.</span>
+              </h1>
+              <p className="max-w-md text-sm leading-relaxed text-white/60 md:text-base md:text-[#4B5563]">
+                Redesenho estratégico de sites para ortopedistas que já têm
+                reputação — e precisam de uma presença digital à altura do seu
+                nível.
+              </p>
+              <div className="mt-8 flex items-center gap-3 md:mt-52 md:gap-x-7">
+                <Link
+                  href={whatsappUrl}
+                  className="inline-flex items-center gap-2.5 rounded-xl bg-[#042C53] px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#053a6e] md:gap-3 md:px-6 md:py-3.5 md:text-base"
+                >
+                  <Image
+                    src="/fotoPerfilBotãoWhatsapp.svg"
+                    alt="Foto"
+                    width={32}
+                    height={32}
+                    className="rounded-full object-cover"
+                  />
+                  Chamar no Whatsapp
+                </Link>
+
+                <div className="rounded-2xl bg-white px-4 py-3 shadow-xl md:hidden">
+                  <p className="font-display text-2xl font-bold text-[#042C53]">+94%</p>
+                  <p className="mt-1 max-w-[230px] text-[10px] leading-snug text-[#4B5563]">
+                    da confiança em um produto/serviço começa na primeira impressão do seu site
+                  </p>
+                </div>
               </div>
             </div>
 
-            <div className="relative h-full pt-6 md:pt-0">
-              <div className="absolute inset-0 rounded-full bg-[#5dd62c] opacity-[0.06] blur-[90px]" />
-              <div className="glass-card relative h-full min-h-[320px] overflow-hidden rounded-2xl shadow-[0_40px_80px_rgba(0,0,0,0.5)] md:min-h-0">
-                <Image
-                  src="/IMGDuplicada.png"
-                  alt="Exemplo de projeto desenvolvido pela Adryel Web"
-                  fill
-                  className="object-cover object-center"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  priority
-                />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[rgba(10,10,10,0.35)] via-transparent to-transparent" />
+            {/* Coluna direita — card 94% */}
+            <div className="hidden md:flex md:justify-end">
+              <div className="w-full rounded-2xl bg-white px-5 py-5 shadow-2xl md:max-w-[400px] md:px-8 md:py-7">
+                <p className="font-display text-3xl font-bold text-[#042C53] md:text-4xl">+94%</p>
+                <p className="mt-2 text-xs leading-relaxed text-[#4B5563] md:mt-3 md:text-sm">
+                  da confiança em um produto/serviço começa na primeira impressão
+                  do seu site
+                </p>
               </div>
             </div>
           </div>
         </section>
+      </div>
+
+      <main>
 
         {/* INFINITE MARQUEE */}
-        <div className="overflow-hidden border-y border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] py-5">
+        <div data-nav-theme="dark" className="overflow-hidden border-y border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)] py-5">
           <div className="marquee-inner">
             {[0, 1].map((group) => (
               <div
@@ -183,239 +173,285 @@ export default function Home() {
           </div>
         </div>
 
-        {/* SERVICES BENTO GRID */}
-        <section id="servicos" className="mx-auto max-w-6xl px-6 py-24">
-          <div className="mb-12 text-center">
-            <span className="badge-accent">Nossos Serviços</span>
-            <h2 className="mt-4 font-display text-3xl font-bold text-[#f8f8f8] md:text-4xl">
-              Soluções Completas para sua Presença Digital
+        {/* O QUE TRAVA */}
+        <section id="pra-quem-e" data-nav-theme="light" className="bg-[#F5F3EF] px-6 py-20">
+          <div className="mx-auto max-w-6xl">
+            <h2 className="mb-12 font-[family-name:var(--font-poppins)] text-2xl font-semibold leading-tight text-gray-900 md:text-3xl">
+              O que trava o crescimento
+              <br />
+              <span className="text-[#4B5563]">de muitos negócios:</span>
             </h2>
-          </div>
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-            {/* Landing Pages – wide */}
-            <div className="glass-card group relative overflow-hidden rounded-2xl p-8 transition-colors hover:border-[rgba(93,214,44,0.25)] md:col-span-2">
-              <div className="absolute right-0 top-0 h-48 w-48 rounded-full bg-[#5dd62c] opacity-[0.04] blur-[60px]" />
-              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl border border-[rgba(93,214,44,0.2)] bg-[rgba(93,214,44,0.1)]">
-                <Rocket size={22} className="text-[#5dd62c]" />
-              </div>
-              <span className="mb-3 inline-block rounded-full border border-[rgba(93,214,44,0.2)] bg-[rgba(93,214,44,0.1)] px-2.5 py-1 text-xs text-[#5dd62c]">Mais Vendido</span>
-              <h3 className="mb-3 font-display text-2xl font-bold text-[#f8f8f8]">Landing Pages</h3>
-              <p className="leading-relaxed text-[rgba(248,248,248,0.6)]">
-                Páginas de alta conversão para campanhas, lançamentos e captação de leads. Cada elemento é pensado para transformar visitantes em clientes.
-              </p>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-4">
+              {[
+                {
+                  num: "1",
+                  title: "Posicionamento fraco",
+                  desc: "O lead não entende se seu negócio é para ele.",
+                },
+                {
+                  num: "2",
+                  title: "Baixa autoridade",
+                  desc: "O site não sustenta o preço que você cobra.",
+                },
+                {
+                  num: "3",
+                  title: "Não tem diferencial",
+                  desc: "São vistos só como mais um no mercado.",
+                },
+                {
+                  num: "4",
+                  title: "Desatualização",
+                  desc: "O site atual não reflete o momento atual.",
+                },
+              ].map((item) => (
+                <div
+                  key={item.num}
+                  className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm"
+                >
+                  <span className="font-[family-name:var(--font-poppins)] text-4xl font-bold text-gray-900">
+                    {item.num}
+                  </span>
+                  <h3 className="mt-6 font-[family-name:var(--font-poppins)] text-sm font-semibold text-gray-900">
+                    {item.title}
+                  </h3>
+                  <p className="mt-1 text-sm leading-relaxed text-[#4B5563]">
+                    {item.desc}
+                  </p>
+                </div>
+              ))}
             </div>
-            {/* Sites Institucionais */}
-            <div className="glass-card group relative overflow-hidden rounded-2xl p-8 transition-colors hover:border-[rgba(93,214,44,0.25)]">
-              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl border border-[rgba(93,214,44,0.2)] bg-[rgba(93,214,44,0.1)]">
-                <Building2 size={22} className="text-[#5dd62c]" />
+
+            <div className="mt-14 border-t border-[rgba(0,0,0,0.2)] pt-10">
+              <div className="grid grid-cols-1 gap-8 md:grid-cols-[1fr_0.82fr] md:gap-10">
+                <div className="font-[family-name:var(--font-poppins)]">
+                  <h3 className="text-3xl font-semibold leading-tight text-gray-900">
+                    Sites que posicionam.
+                    <br />
+                    Agendas que lotam.
+                  </h3>
+                  <p className="mt-8 max-w-sm text-sm leading-relaxed text-[#4B5563]">
+                    Cada decisão de design tem um motivo estratégico e você entende
+                    o porquê de cada uma.
+                  </p>
+
+                  <div className="mt-16 max-w-md space-y-5">
+                    <div>
+                      <div className="mb-2 flex items-center justify-between text-xs text-gray-900">
+                        <span>Sites genéricos de médico</span>
+                        <span>1-2%</span>
+                      </div>
+                      <div className="h-9 rounded-full bg-[#D1D5DB] p-1">
+                        <div className="h-full w-[11%] rounded-full bg-black" />
+                      </div>
+                      <p className="mt-2 text-xs text-[#4B5563]">
+                        Pouca clareza, sem posicionamento
+                      </p>
+                    </div>
+
+                    <div>
+                      <div className="mb-2 flex items-center justify-between text-xs text-gray-900">
+                        <span>Método Virado</span>
+                        <span>6-12%</span>
+                      </div>
+                      <div className="h-9 rounded-full bg-[#D1D5DB] p-1">
+                        <div className="h-full w-[92%] rounded-full bg-[#2D8FFF]" />
+                      </div>
+                      <p className="mt-2 text-xs text-[#4B5563]">
+                        Foco em clareza, valor e tomada de decisão
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mx-auto w-full max-w-[520px] rounded-3xl bg-[#111111] p-5 md:max-w-[460px] md:p-6">
+                  <div className="relative aspect-[4/5] overflow-hidden rounded-2xl">
+                    <Image
+                      src="/imgPerfil2.svg"
+                      alt="Foto de perfil"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 40vw"
+                    />
+                  </div>
+                </div>
               </div>
-              <h3 className="mb-3 font-display text-xl font-bold text-[#f8f8f8]">Sites Institucionais</h3>
-              <p className="text-sm leading-relaxed text-[rgba(248,248,248,0.6)]">
-                Presença digital profissional para posicionar sua marca e gerar novas oportunidades de negócio.
-              </p>
             </div>
-            {/* Sistemas Web */}
-            <div className="glass-card group relative overflow-hidden rounded-2xl p-8 transition-colors hover:border-[rgba(93,214,44,0.25)]">
-              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl border border-[rgba(93,214,44,0.2)] bg-[rgba(93,214,44,0.1)]">
-                <Settings2 size={22} className="text-[#5dd62c]" />
+
+            <div className="mt-16 md:mt-20">
+              <div className="rounded-3xl border border-[rgba(0,0,0,0.06)] bg-[#F8F8F7] px-6 py-6 md:px-8 md:py-7">
+                <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+                  <div className="flex items-center gap-5">
+                    <div className="relative h-20 w-20 shrink-0 md:h-24 md:w-24">
+                      <Image
+                        src="/mockupPhone.svg"
+                        alt="Mockup de celular"
+                        fill
+                        className="object-contain"
+                        sizes="96px"
+                      />
+                    </div>
+
+                    <div className="font-[family-name:var(--font-poppins)]">
+                      <h3 className="text-2xl font-medium leading-tight text-gray-900 md:text-[2rem]">
+                        Websites criados para celulares
+                      </h3>
+                      <p className="mt-2 max-w-xl text-sm leading-relaxed text-[#4B5563]">
+                        A maioria dos primeiros contatos acontece no celular. Estruturo
+                        o seu site para ser claro, rápido e convincente desde a
+                        primeira rolagem.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-row items-center justify-between gap-4 md:flex-col md:items-start md:justify-center">
+                    <span className="inline-flex rounded-full bg-[#042C53] px-6 py-3 text-sm font-semibold text-white">
+                      Exclusivo
+                    </span>
+                    <p className="text-start text-xs leading-relaxed text-[#4B5563]">
+                      Smartphones
+                      <br />
+                      &amp; Tablets
+                    </p>
+                  </div>
+                </div>
               </div>
-              <h3 className="mb-3 font-display text-xl font-bold text-[#f8f8f8]">Sistemas Web</h3>
-              <p className="text-sm leading-relaxed text-[rgba(248,248,248,0.6)]">
-                Plataformas personalizadas para automatizar processos e escalar sua operação digital.
-              </p>
-            </div>
-            {/* SEO wide */}
-            <div className="glass-card group relative overflow-hidden rounded-2xl p-8 transition-colors hover:border-[rgba(93,214,44,0.25)] md:col-span-2">
-              <div className="absolute bottom-0 left-0 h-48 w-48 rounded-full bg-[#5dd62c] opacity-[0.03] blur-[60px]" />
-              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl border border-[rgba(93,214,44,0.2)] bg-[rgba(93,214,44,0.1)]">
-                <TrendingUp size={22} className="text-[#5dd62c]" />
-              </div>
-              <h3 className="mb-3 font-display text-2xl font-bold text-[#f8f8f8]">SEO & Alta Performance</h3>
-              <p className="leading-relaxed text-[rgba(248,248,248,0.6)]">
-                Estrutura técnica otimizada para aparecer nos primeiros resultados do Google. Score 100 no Google Lighthouse em todos os projetos entregues.
-              </p>
             </div>
           </div>
         </section>
 
         {/* COMO FUNCIONA */}
-        <section className="mx-auto max-w-6xl px-6 py-24">
-          <div className="mb-12 text-center">
-            <span className="badge-accent">Como Funciona</span>
-            <h2 className="mt-4 font-display text-3xl font-bold text-[#f8f8f8] md:text-4xl">
-              Do primeiro contato ao site no ar
-            </h2>
-          </div>
-          <div className="grid gap-6 md:grid-cols-3">
-            {[
-              {
-                step: "01",
-                icon: Phone,
-                title: "Você entra em contato",
-                desc: "Conte sobre seu negócio e objetivos. Respondemos em até 24 horas com uma proposta personalizada.",
-              },
-              {
-                step: "02",
-                icon: FileText,
-                title: "Criamos seu projeto",
-                desc: "Desenvolvemos o design e a estrutura do site com foco em conversão, performance e SEO.",
-              },
-              {
-                step: "03",
-                icon: Globe,
-                title: "Seu site no ar",
-                desc: "Publicamos, testamos e entregamos seu site funcionando — com suporte incluso após a entrega.",
-              },
-            ].map((item) => (
-              <div key={item.step} className="glass-card relative rounded-2xl p-8 text-center">
-                <span className="absolute right-6 top-6 font-display text-4xl font-bold text-[rgba(93,214,44,0.1)]">
-                  {item.step}
-                </span>
-                <div className="mx-auto mb-5 flex h-12 w-12 items-center justify-center rounded-xl border border-[rgba(93,214,44,0.2)] bg-[rgba(93,214,44,0.1)]">
-                  <item.icon size={22} className="text-[#5dd62c]" />
-                </div>
-                <h3 className="mb-3 font-display text-xl font-bold text-[#f8f8f8]">{item.title}</h3>
-                <p className="text-sm leading-relaxed text-[rgba(248,248,248,0.6)]">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* STATS */}
-        <div className="mx-auto max-w-6xl px-6">
-          <StatsSection />
-        </div>
-
-        {/* PORTFOLIO */}
-        <div className="mx-auto max-w-6xl px-6">
-          <PortfolioSlider />
-        </div>
-
-        {/* TESTIMONIALS */}
-        <section id="depoimentos" className="mx-auto max-w-6xl px-6 py-24">
-          <div className="mb-12 text-center">
-            <span className="badge-accent">Depoimentos</span>
-            <h2 className="mt-4 font-display text-3xl font-bold text-[#f8f8f8] md:text-4xl">
-              O que nossos clientes dizem
-            </h2>
-          </div>
-          <div className="grid gap-6 md:grid-cols-3">
-            {testimonials.map((t) => (
-              <div key={t.name} className="glass-card space-y-4 rounded-2xl p-6">
-                <div className="flex gap-1">
-                  {Array.from({ length: t.rating }).map((_, i) => (
-                    <Star key={i} size={14} className="fill-[#5dd62c] text-[#5dd62c]" />
-                  ))}
-                </div>
-                <p className="text-sm leading-relaxed text-[rgba(248,248,248,0.75)]">
-                  &ldquo;{t.text}&rdquo;
-                </p>
-                <div className="flex items-center gap-3 pt-2">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-full border border-[rgba(93,214,44,0.2)] bg-[rgba(93,214,44,0.15)] text-sm font-bold text-[#5dd62c]">
-                    {t.name[0]}
-                  </div>
-                  <div>
-                    <div className="text-sm font-semibold text-[#f8f8f8]">{t.name}</div>
-                    <div className="text-xs text-[rgba(248,248,248,0.5)]">{t.role}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* FAQ */}
-        <section id="faq" className="mx-auto max-w-6xl px-6 pb-24">
-          <div className="mb-12 text-center">
-            <span className="badge-accent">FAQ</span>
-            <h2 className="mt-4 font-display text-3xl font-bold text-[#f8f8f8] md:text-4xl">
-              Perguntas Frequentes
-            </h2>
-          </div>
-
-          <div className="space-y-4">
-            {faqs.map((faq) => (
-              <details
-                key={faq.question}
-                className="glass-card group rounded-2xl p-6 open:border-[rgba(93,214,44,0.25)]"
-              >
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-display text-lg font-semibold text-[#f8f8f8] marker:content-none">
-                  <span>{faq.question}</span>
-                  <ChevronDown
-                    size={20}
-                    className="shrink-0 text-[#5dd62c] transition-transform duration-300 group-open:rotate-180"
-                    aria-hidden="true"
-                  />
-                </summary>
-
-                <div className="mt-4 space-y-3 text-[rgba(248,248,248,0.68)]">
-                  {faq.paragraphs.map((paragraph) => (
-                    <p key={paragraph} className="leading-relaxed">
-                      {paragraph}
-                    </p>
-                  ))}
-
-                  {!!faq.items?.length && (
-                    <ul className="space-y-2 pl-4">
-                      {faq.items.map((item) => (
-                        <li key={item} className="list-disc leading-relaxed">
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              </details>
-            ))}
-          </div>
-        </section>
-
-        {/* CTA FINAL */}
-        <section className="mx-auto max-w-6xl px-6 pb-24">
-          <div className="glass-card relative overflow-hidden rounded-3xl p-10 text-center md:p-16">
-            <div className="absolute inset-0 bg-[#5dd62c] opacity-[0.03] blur-[80px]" />
-            <div className="relative">
-              <span className="badge-accent">Comece Agora</span>
-              <h2 className="mt-4 font-display text-3xl font-bold leading-tight text-[#f8f8f8] md:text-5xl">
-                Pronto para transformar sua
-                <br className="hidden md:block" />
-                <span className="text-[#5dd62c]"> presença digital</span>?
+        <section id="como-funciona" data-nav-theme="light" className="bg-[#F5F3EF] px-6 py-20">
+          <div className="mx-auto max-w-6xl font-[family-name:var(--font-poppins)]">
+            <div className="mb-10 grid grid-cols-1 gap-4 md:mb-12 md:grid-cols-2 md:items-center md:gap-8">
+              <p className="text-lg font-medium text-[#4B5563] md:text-2xl">Método Virado</p>
+              <h2 className="max-w-md text-3xl font-semibold leading-tight text-gray-900 md:text-4xl">
+                Como transformo seu site em ativo de crescimento
               </h2>
-              <p className="mx-auto mt-4 max-w-xl text-[rgba(248,248,248,0.6)]">
-                Vamos conversar sobre seu projeto. Análise gratuita e proposta personalizada em até 24 horas.
-              </p>
-              <p className="mt-2 text-sm font-medium text-[#5dd62c]">
-                ✦ Vagas limitadas para este mês
-              </p>
-              <div className="mt-8 flex flex-wrap justify-center gap-4">
-                <a href={whatsappUrl} className="flex items-center gap-2 rounded-xl bg-[#5dd62c] px-8 py-4 text-base font-bold text-[#101010] transition-colors hover:bg-[#4ab325]">
-                  <MessageCircle size={18} />
-                  Falar no WhatsApp
-                </a>
+            </div>
+
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-4">
+              {[
+                {
+                  title: "Diagnóstico",
+                  desc: "Leitura profunda do seu negócio, repertório e momento atual. Daqui saem as decisões que guiam tudo.",
+                },
+                {
+                  title: "Conceito",
+                  desc: "Posicionamento, mensagem e identidade definidos. O que você comunica, para quem e como.",
+                },
+                {
+                  title: "Projeto",
+                  desc: "O site toma forma - estrutura, hierarquia e fluxo pensados para converter o paciente certo.",
+                },
+                {
+                  title: "Presença",
+                  desc: "Site no ar. Presença digital alinhada ao nível do seu consultório.",
+                },
+              ].map((item) => (
+                <div key={item.title} className="rounded-2xl bg-white p-6 md:p-7">
+                  <h3 className="text-lg font-semibold text-gray-900">{item.title}</h3>
+                  <p className="mt-8 text-sm leading-relaxed text-[#4B5563] md:mt-12">
+                    {item.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* O QUE MUDA */}
+        <section data-nav-theme="dark" className="bg-[#000000] px-6 py-24">
+          <div className="mx-auto max-w-6xl font-[family-name:var(--font-poppins)]">
+            <h2 className="max-w-xl text-3xl font-semibold leading-tight text-white md:text-3xl">
+              <span className="text-[#4B5563]">O que muda quando </span>
+              seu consultório tem direção no digital.
+            </h2>
+
+            <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6">
+              <div className="rounded-3xl bg-[#282828] p-6 md:p-7">
+                <FaArrowLeftLong className="text-2xl text-[#4B5563]" aria-hidden="true" />
+                <h3 className="mt-8 text-xl font-semibold text-white">Antes</h3>
+                <ul className="mt-6 space-y-4 text-sm leading-relaxed text-white/80">
+                  {[
+                    "Site que não acompanha o nível do consultóri;.",
+                    "Paciente que encontra, mas não converte;",
+                    "Presença digital que não reflete o consultório que você construiu;",
+                    "Crescimento dependente de indicação.",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2">
+                      <FaXmark className="mt-0.5 shrink-0 text-base leading-none text-red-500" aria-hidden="true" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="rounded-3xl bg-[#F5F5F5] p-6 md:p-7">
+                <FaArrowRightLong className="text-2xl text-gray-900" aria-hidden="true" />
+                <h3 className="mt-8 text-xl font-semibold text-gray-900">Depois</h3>
+                <ul className="mt-6 space-y-4 text-sm leading-relaxed text-[#4B5563]">
+                  {[
+                    "Contato de pacientes ideais;",
+                    "Pacientes que chegam prontos para fechar;",
+                    "Percepção imediata de exclusividade;",
+                    "Liberdade para cobrar seu preço.",
+                  ].map((item) => (
+                    <li key={item} className="flex items-start gap-2">
+                      <FaCheck className="mt-0.5 shrink-0 text-sm leading-none text-emerald-500" aria-hidden="true" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
         </section>
-      </main>
 
-      {/* FOOTER */}
-      <footer className="border-t border-[rgba(255,255,255,0.06)] bg-[rgba(15,15,15,0.8)]">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-10 md:flex-row">
-          <Link href="/" className="font-display text-lg font-bold">
-            <span className="text-[#5dd62c]">ADRYEL</span>
-            <span className="text-[#f8f8f8]"> WEB</span>
-          </Link>
-          <p className="text-sm text-[rgba(248,248,248,0.4)]">
-            © {new Date().getFullYear()} Adryel Web Studio. Todos os direitos reservados.
-          </p>
-          <div className="flex gap-6 text-sm text-[rgba(248,248,248,0.5)]">
-            <a href="#servicos" className="transition-colors hover:text-[#5dd62c]">Serviços</a>
-            <a href="#portfolio" className="transition-colors hover:text-[#5dd62c]">Portfólio</a>
-            <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-[#5dd62c]">Instagram</a>
-            <a href={whatsappUrl} className="transition-colors hover:text-[#5dd62c]">Contato</a>
+        {/* TESTIMONIALS */}
+        <section id="depoimentos" data-nav-theme="light" className="bg-[#F5F3EF] px-4 py-16 md:px-6 md:py-20">
+          <div className="mx-auto max-w-6xl font-[family-name:var(--font-poppins)]">
+            <div className="mb-12 grid grid-cols-1 gap-6 md:grid-cols-2 md:items-start">
+              <h2 className="max-w-sm text-3xl font-medium leading-tight text-gray-900 md:text-4xl">
+                Ortopedistas confiam no meu processo
+              </h2>
+              <p className="max-w-xs text-sm leading-relaxed text-[#4B5563] md:justify-self-end">
+                Flexibilidade, velocidade, sem perder qualidade. Resultados notáveis.
+                Mais conversões.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-5">
+              {testimonials.map((item) => (
+                <article
+                  key={item.name}
+                  className="flex min-h-[260px] flex-col rounded-2xl border border-[rgba(0,0,0,0.08)] p-5 md:min-h-[300px] md:p-6"
+                >
+                  <FaQuoteLeft className="text-xl text-[#B7BDC7]" aria-hidden="true" />
+                  <p className="mt-5 text-base font-medium leading-snug text-[#4B5563] md:mt-7 md:text-xl md:leading-tight">
+                    {item.quote}
+                  </p>
+                  <div className="mt-auto flex items-center gap-3 pt-10">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#D7DBE3] text-sm font-semibold text-[#4B5563]">
+                      {item.name
+                        .split(" ")
+                        .map((part) => part[0])
+                        .slice(0, 2)
+                        .join("")}
+                    </div>
+                    <div>
+                      <p className="text-base font-semibold leading-tight text-gray-900 md:text-xl">{item.name}</p>
+                      <p className="text-sm text-[#4B5563]">{item.role}</p>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
-        </div>
-      </footer>
+        </section>
+
+        <RecentProjectsSlider whatsappUrl={whatsappUrl} />
+        <FaqAccordion />
+      </main>
     </>
   );
 }

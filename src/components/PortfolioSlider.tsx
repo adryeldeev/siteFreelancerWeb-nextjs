@@ -132,7 +132,7 @@ export default function PortfolioSlider() {
       <div className="mt-8 flex items-center justify-center gap-4">
         <button
           onClick={prev}
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(255,255,255,0.1)] text-[rgba(248,248,248,0.6)] transition-colors hover:border-[#5dd62c] hover:text-[#5dd62c]"
+          className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-[rgba(255,255,255,0.1)] text-[rgba(248,248,248,0.6)] transition-colors hover:border-[#5dd62c] hover:text-[#5dd62c]"
           aria-label="Projeto anterior"
         >
           <ChevronLeft size={18} />
@@ -144,7 +144,7 @@ export default function PortfolioSlider() {
             <button
               key={i}
               onClick={() => setCurrent(i)}
-              className={`h-2 rounded-full transition-all duration-300 ${
+              className={`h-2 cursor-pointer rounded-full transition-all duration-300 ${
                 i === current
                   ? "w-8 bg-[#5dd62c]"
                   : "w-2 bg-[rgba(248,248,248,0.3)] hover:bg-[rgba(248,248,248,0.5)]"
@@ -156,7 +156,7 @@ export default function PortfolioSlider() {
 
         <button
           onClick={next}
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-[rgba(255,255,255,0.1)] text-[rgba(248,248,248,0.6)] transition-colors hover:border-[#5dd62c] hover:text-[#5dd62c]"
+          className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-[rgba(255,255,255,0.1)] text-[rgba(248,248,248,0.6)] transition-colors hover:border-[#5dd62c] hover:text-[#5dd62c]"
           aria-label="Próximo projeto"
         >
           <ChevronRight size={18} />
