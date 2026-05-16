@@ -175,7 +175,7 @@ export default function RecentProjectsSlider({
                 </div>
 
                 <h2 className="mt-7 max-w-xl font-[family-name:var(--font-poppins)] text-[2rem] font-semibold leading-[1.05] text-white md:mt-10 md:text-3xl">
-                  Vamos estruturar o site certo para o seu consultório juntos!
+                  Seu consultório tem o site que merece?
                 </h2>
               </div>
 
