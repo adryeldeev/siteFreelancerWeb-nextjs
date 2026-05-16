@@ -32,7 +32,7 @@ const faqItems: FaqItem[] = [
 ];
 
 export default function FaqAccordion() {
-  const [openItems, setOpenItems] = useState<number[]>([0, 1, 2, 3]);
+  const [openItems, setOpenItems] = useState<number[]>([]);
 
   const toggleItem = (index: number) => {
     setOpenItems((prev) =>

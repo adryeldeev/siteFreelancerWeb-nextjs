@@ -80,7 +80,9 @@ export default function Home() {
           muted
           loop
           playsInline
-          className="absolute inset-0 h-full w-full object-cover"
+          disablePictureInPicture
+          className="pointer-events-none absolute inset-0 h-full w-full select-none object-cover"
+          aria-hidden="true"
         >
           <source src="/background.mp4" type="video/mp4" />
         </video>
