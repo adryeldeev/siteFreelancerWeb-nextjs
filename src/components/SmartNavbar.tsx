@@ -70,8 +70,7 @@ export default function SmartNavbar({ whatsappUrl }: SmartNavbarProps) {
       }`}
     >
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-6 md:py-4">
-        <Link href="/" className="flex items-center gap-2.5">
-          <div className={`h-7 w-7 rounded-sm ${isLight ? "bg-black" : "bg-white"}`} />
+        <Link href="/" className="flex items-center">
           <span
             className={`font-display text-base font-bold md:text-xl ${
               isLight ? "text-gray-900" : "text-white"

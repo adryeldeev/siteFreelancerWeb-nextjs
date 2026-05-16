@@ -1,4 +1,5 @@
-﻿import Image from "next/image";
+﻿import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import FaqAccordion from "@/components/FaqAccordion";
 import RecentProjectsSlider from "@/components/RecentProjectsSlider";
@@ -18,6 +19,48 @@ const whatsappText = encodeURIComponent(
   "Olá! Quero um site profissional para meu negócio.",
 );
 const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappText}`;
+
+const orthopedistSeoKeywords = [
+  "site para ortopedista",
+  "criacao de site para ortopedista",
+  "landing page para ortopedista",
+  "site para clinica ortopedica",
+  "desenvolvimento de site para medico ortopedista",
+  "seo para ortopedista",
+  "site medico para ortopedista",
+  "presenca digital para ortopedista",
+];
+
+export const metadata: Metadata = {
+  title: "Site para Ortopedista | Landing Page e Site Medico de Alta Conversao",
+  description:
+    "Criação de site para ortopedista com foco em autoridade, SEO local e mais agendamentos. Landing pages e sites médicos para consultórios de ortopedia.",
+  keywords: orthopedistSeoKeywords,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Site para Ortopedista | Landing Page e Site Medico de Alta Conversao",
+    description:
+      "Projetos digitais para ortopedistas que precisam transformar reputação médica em autoridade online e mais contatos qualificados.",
+    url: "/",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Site para ortopedista desenvolvido pela Adryel Web Studio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Site para Ortopedista | Landing Page e Site Medico de Alta Conversao",
+    description:
+      "Criação de site para ortopedista com foco em SEO, autoridade e conversão para consultórios de ortopedia.",
+    images: ["/twitter-image"],
+  },
+};
 
 const marqueeItems = [
   "Landing Pages",
@@ -67,9 +110,36 @@ const testimonials = [
   },
 ];
 
+const orthopedistStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "Adryel Web Studio",
+  url: "https://site-adryel.vercel.app",
+  description:
+    "Criação de site para ortopedista, landing pages e presença digital para consultórios de ortopedia com foco em SEO e conversão.",
+  areaServed: "Brasil",
+  audience: {
+    "@type": "Audience",
+    audienceType: "Ortopedistas e clínicas ortopédicas",
+  },
+  serviceType: [
+    "Site para ortopedista",
+    "Landing page para ortopedista",
+    "SEO para ortopedista",
+    "Presença digital para consultório de ortopedia",
+  ],
+};
+
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(orthopedistStructuredData),
+        }}
+      />
+
       {/* HERO + NAVBAR WRAPPER */}
       <div id="inicio" data-nav-theme="dark" className="relative min-h-0 overflow-hidden w-full md:min-h-screen">
         <SmartNavbar whatsappUrl={whatsappUrl} />
@@ -115,12 +185,12 @@ export default function Home() {
               </div>
               <h1 className="font-display text-[2rem] font-bold leading-tight text-white sm:text-[2.35rem] md:text-5xl lg:text-[3.2rem]">
                 Transformo seu site no reflexo real do que{" "}
-                <span className="text-[#0978E4]">seu consultório é hoje.</span>
+                <span className="text-[#0978E4]">seu consultório de ortopedia é hoje.</span>
               </h1>
               <p className="max-w-md text-sm leading-relaxed text-white/60 md:text-base md:text-[#4B5563]">
-                Redesenho estratégico de sites para ortopedistas que já têm
-                reputação — e precisam de uma presença digital à altura do seu
-                nível.
+                Criação de site para ortopedista com posicionamento estratégico,
+                SEO e uma presença digital à altura da autoridade do seu
+                consultório.
               </p>
               <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center md:mt-52 md:gap-x-7">
                 <Link
