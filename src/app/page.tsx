@@ -16,7 +16,7 @@ import {
 
 const whatsappNumber = "5585984414455";
 const whatsappText = encodeURIComponent(
-  "Olá! Quero um site profissional para meu negócio.",
+  "Olá! Quero um site profissional para meu consultório.",
 );
 const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappText}`;
 
