@@ -332,7 +332,7 @@ export default function Home() {
 
                     <div>
                       <div className="mb-2 flex items-center justify-between text-xs text-gray-900">
-                        <span>Método Virado</span>
+                        <span>Método Virada</span>
                         <span>6-12%</span>
                       </div>
                       <div className="h-9 rounded-full bg-[#D1D5DB] p-1">
