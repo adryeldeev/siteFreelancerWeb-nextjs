@@ -74,6 +74,16 @@ export default function Home() {
       <div id="inicio" data-nav-theme="dark" className="relative min-h-0 overflow-hidden w-full md:min-h-screen">
         <SmartNavbar whatsappUrl={whatsappUrl} />
 
+        {/* Mobile Background */}
+        <div
+          className="absolute inset-0 md:hidden"
+          aria-hidden="true"
+          style={{
+            background:
+              "radial-gradient(circle at 20% 20%, rgba(255,255,255,0.05), transparent 28%), radial-gradient(circle at 80% 30%, rgba(255,255,255,0.04), transparent 24%), linear-gradient(180deg, #151515 0%, #0d0d0d 100%)",
+          }}
+        />
+
         {/* Video Background */}
         <video
           autoPlay
@@ -81,7 +91,7 @@ export default function Home() {
           loop
           playsInline
           disablePictureInPicture
-          className="pointer-events-none absolute inset-0 h-full w-full select-none object-cover"
+          className="pointer-events-none absolute inset-0 hidden h-full w-full select-none object-cover md:block"
           aria-hidden="true"
         >
           <source src="/background.mp4" type="video/mp4" />
@@ -112,10 +122,10 @@ export default function Home() {
                 reputação — e precisam de uma presença digital à altura do seu
                 nível.
               </p>
-              <div className="mt-8 flex items-center gap-3 md:mt-52 md:gap-x-7">
+              <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center md:mt-52 md:gap-x-7">
                 <Link
                   href={whatsappUrl}
-                  className="inline-flex items-center gap-2.5 rounded-xl bg-[#042C53] px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#053a6e] md:gap-3 md:px-6 md:py-3.5 md:text-base"
+                  className="inline-flex min-h-11 items-center gap-2.5 rounded-xl bg-[#042C53] px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#053a6e] sm:px-5 md:gap-3 md:px-6 md:py-3.5 md:text-base"
                 >
                   <Image
                     src="/fotoPerfilBotãoWhatsapp.svg"
@@ -127,9 +137,9 @@ export default function Home() {
                   Chamar no Whatsapp
                 </Link>
 
-                <div className="rounded-2xl bg-white px-4 py-3 shadow-xl md:hidden">
+                <div className="w-full max-w-[320px] rounded-2xl bg-white px-4 py-3 shadow-xl sm:max-w-[250px] md:hidden">
                   <p className="font-display text-2xl font-bold text-[#042C53]">+94%</p>
-                  <p className="mt-1 max-w-[230px] text-[10px] leading-snug text-[#4B5563]">
+                  <p className="mt-1 text-[10px] leading-snug text-[#4B5563]">
                     da confiança em um produto/serviço começa na primeira impressão do seu site
                   </p>
                 </div>
