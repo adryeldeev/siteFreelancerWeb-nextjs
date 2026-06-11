@@ -27,6 +27,22 @@ const projectCards: ProjectCard[] = [
     mockupAlt: "Mockup do site do Dr. Filipe Arruda",
   },
   {
+    title: "Dr.Filipe Martins",
+    description:
+      "Website médico com foco em posicionamento digital, autoridade e experiência clara para facilitar o agendamento.",
+    metric: "Presença digital profissional",
+    image: "/drfelipemartinsnotebook.svg",
+    imageAlt: "Projeto do Dr.Filipe Martins",
+  },
+  {
+    title: "Clínica Articulare",
+    description:
+      "Projeto institucional para clínica com comunicação objetiva e layout orientado a gerar confiança no primeiro contato.",
+    metric: "Marca mais forte no digital",
+    image: "/clinicafoto.svg",
+    imageAlt: "Projeto da Clínica Articulare",
+  },
+  {
     title: "QUATRO SEGUROS",
     description:
       "Reposicionamos uma indenizadora de seguro de vida, com comunicação mais clara e foco em conversão.",
@@ -86,9 +102,7 @@ export default function RecentProjectsSlider({
   };
 
   const sliderTransform = isDesktop
-    ? activeSlide === 0
-      ? "translateX(0)"
-      : "translateX(calc(-1 * (50% + 0.625rem)))"
+    ? `translateX(calc(-${activeSlide} * (50% + 0.625rem)))`
     : `translateX(calc(-${activeSlide} * (100% + 1rem)))`;
 
   return (
